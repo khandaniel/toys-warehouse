@@ -1,43 +1,25 @@
-let endpoint = null
+import { baseUrl } from '../config'
 
-const headers = {
-  'content-type': 'application/json'
+const initialSettings = {
+    headers: { 'content-type': 'application/json' }
 }
 
-export const initWithEndpoint = (url) => {
-  endpoint = url
-}
+export const requestApi = async (route, data, settings) => {
+    try {
+        const response = await fetch([baseUrl, route].join('/'), {
+            ...initialSettings,
+            ...settings,
+            headers: {
+                ...initialSettings.headers,
+                ...settings.headers
+            },
 
-export const get = async (resource) => {
-  return fetch( [endpoint, resource].join('/') ).then((res) => res.json())
-    .then(res => {
-      return res
-    });
-}
+            body: settings.method === 'GET' ? null : JSON.stringify(data)
+        })
+        const responseData = await response.json()
 
-export const create = async (resource, item) => {
-  return fetch( [endpoint, resource].join('/'), { headers, body: JSON.stringify(item), method: 'POST' } ).then((res) => res.json()).then((res) => {
-    return res
-  })
-}
-
-export const remove = async (resource, id) => {
-  try {
-    const result = await fetch( [endpoint, resource, id].join('/'), { headers, method: 'DELETE' } )
-    console.log('result: ', result )
-    return {
-      success: result.status === 200,
+        return responseData
+    } catch (error) {
+        return error
     }
-  }
-  catch (error) {
-    return {
-      success: null
-    }
-  }
-}
-
-export const update = async (resource, id, item) => {
-  return fetch( [endpoint, resource, id].join('/'), { headers, body: JSON.stringify(item), method: 'PUT' } ).then((res) => res.json()).then((res) => {
-    // console.log('res', res)
-  })
 }
