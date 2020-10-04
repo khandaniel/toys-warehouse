@@ -1,11 +1,37 @@
-import React from 'react';
-import './App.css';
-import LoginScreen from "../LoginScreen";
-import Dashboard from "../Dashboard";
-import {connect} from "react-redux";
+import React from 'react'
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Redirect
+} from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import AuthScreen from '../AuthScreen/AuthScreen'
+import Dashboard from '../Dashboard/Dashboard'
 
-function App({ isAuthenticated }) {
-  return isAuthenticated ? <Dashboard /> : <LoginScreen />;
+function App() {
+    const token = useSelector(state => state.auth.token)
+    const redirectPath = token ? '/dash' : '/auth'
+    // console.log("App: ", token);
+
+    return (
+        <Router>
+            <Switch>
+                <Route exact path="/">
+                    <Redirect to={redirectPath} />
+                </Route>
+                <Route path="/auth">
+                    <AuthScreen />
+                </Route>
+                <Route path="/logout">
+                    <AuthScreen logout />
+                </Route>
+                <Route path="/dash">
+                    <Dashboard />
+                </Route>
+            </Switch>
+        </Router>
+    );
 }
 
-export default connect((state) => ({isAuthenticated: !!state.userToken }))(App);
+export default App

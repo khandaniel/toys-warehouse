@@ -1,0 +1,17 @@
+.LoginForm {
+    padding: 30px;
+    display: flex;
+    width: 500px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.LoginFormContainer {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
