@@ -1,14 +1,19 @@
 import authReducer from './reducers/authReducer'
-import productReducer from './reducers/productReducer'
+import toysReducer from './reducers/toysReducer'
+import transactionsReducer from './reducers/transactionsReducer'
+import categoriesReducer from './reducers/categoriesReducer'
 import { applyMiddleware, combineReducers, createStore } from 'redux'
 import thunk from 'redux-thunk'
+import authChecker from '../middlewares/authChecker'
 
 const store = createStore(
     combineReducers({
         auth: authReducer,
-        products: productReducer
+        toys: toysReducer,
+        categories: categoriesReducer,
+        transactions: transactionsReducer,
     }),
-    applyMiddleware(thunk)
+    applyMiddleware(authChecker, thunk)
 )
 
 export default store

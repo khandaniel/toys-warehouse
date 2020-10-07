@@ -1,48 +1,51 @@
 import Cookies from 'universal-cookie'
 
-import { requestLogin } from '../../services/authService'
+import {getProfile, requestLogin} from '../../services/authService'
 
-export const login = (email, password) => async (dispatch) => {
+export const login = (email, password) => dispatch => {
     dispatch({
         type: 'AUTH_START',
     })
 
-    const loginResult = await requestLogin(email, password) // .then
+    requestLogin(email, password).then(loginResult => {
+        if (loginResult.accessToken) {
+            const expires = new Date(Date.now() + 86400000)
+            const cookies = new Cookies()
+            cookies.set('token', loginResult.accessToken, { expires })
+            dispatch({
+                type: 'AUTH_SUCCESS',
+                token: loginResult.accessToken
+            })
+        } else {
+            dispatch({
+                type: 'AUTH_FAIL',
+                error: loginResult.message
+            })
+        }
 
-    if (loginResult.accessToken) {
-        const expires = new Date(Date.now() + 24*3600000)
-        const cookies = new Cookies()
-        cookies.set('token', loginResult.accessToken, { expires })
         dispatch({
-            type: 'AUTH_SUCCESS',
-            token: loginResult.accessToken
+            type: 'AUTH_FINISH'
         })
-    } else {
-        console.log(loginResult);
-        dispatch({
-            type: 'AUTH_FAIL',
-            error: 1 ? loginResult.message : ''
-        })
-    }
-
-    dispatch({
-        type: 'AUTH_FINISH'
     })
 }
 
-export const logout = (token) => async (dispatch) => {
+export const logout = token => dispatch => {
     const cookies = new Cookies()
     if (cookies.get('token') === token)
     cookies.remove('token')
-    setTimeout(() => {
-        dispatch({ type: 'AUTH_CANCEL' })
-    }, 200);
-
+    dispatch({ type: 'AUTH_DISCARD' })
 }
 
-export const updateForm = (fields) => {
-    return {
-        type: 'UPDATE_FORM',
-        fields
-    }
+export const updateForm = fields => ({
+    type: 'UPDATE_FORM',
+    fields
+})
+
+export const loadProfile = () => dispatch => {
+    getProfile().then(({id, email}) => {
+        dispatch({
+            type: 'PROFILE_RECEIVED',
+            profile: { id, email }
+        })
+    })
 }

@@ -1,10 +1,11 @@
 import React, { useCallback } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect, useLocation } from 'react-router-dom'
-import { login as loginAction, logout as logoutAction, updateForm } from '../../store/actions/authActions';
+import { login as loginAction, logout as logoutAction, updateForm } from '../../store/actions/authActions'
 import {Button, FormLabel, TextField, CircularProgress} from '@material-ui/core'
 
 import './AuthScreen.css'
+import {routes} from '../../config'
 
 function useQuery() {
     return new URLSearchParams(useLocation().search)
@@ -30,7 +31,6 @@ function AuthScreen({ logout }) {
     const password = useSelector(state => state.auth.form.password)
     const loading = useSelector(state => state.auth.loading)
 
-    console.log("AuthScreen: ", token);
     const onFormSubmit = useCallback((e) => {
         e.preventDefault()
         dispatch(loginAction(login, password))
@@ -47,17 +47,17 @@ function AuthScreen({ logout }) {
             dispatch(logoutAction(externalToken))
         }
 
-        return <Redirect to="/" />
+        return <Redirect to={routes.base} />
     }
 
     if (token) {
-        return <Redirect to="/" />
+        return <Redirect to={routes.base} />
     }
 
     return (
         <div className="LoginFormContainer">
             <form className="LoginForm" onSubmit={ onFormSubmit }>
-                <FormLabel>LOGIN FORM</FormLabel>
+                <FormLabel>Sign In</FormLabel>
                 <TextField
                     style={style.textField}
                     type="email"

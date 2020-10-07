@@ -1,12 +1,18 @@
 import Cookies from 'universal-cookie'
 
 const cookies = new Cookies()
+const token = cookies.get('token')
 
 const initialState = {
-  token: cookies.get('token'),
+  token,
+  isAuthorized: !!token,
   form: {
     email: '',
     password: ''
+  },
+  profile: {
+    id: '',
+    email: '',
   },
   loading: false,
   error: null,
@@ -31,6 +37,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         token: action.token,
+        isAuthorized: true,
         form: {
           email: '',
           password: ''
@@ -46,10 +53,16 @@ export default (state = initialState, action) => {
         ...state,
         loading: false
       }
-    case 'AUTH_CANCEL':
+    case 'AUTH_DISCARD':
       return {
         ...initialState,
+        isAuthorized: false,
         token: ''
+      }
+    case 'PROFILE_RECEIVED':
+      return {
+        ...state,
+        profile: action.profile
       }
     default:
       return state;

@@ -1,7 +1,5 @@
 import { requestApi } from './networkProvider'
 
-export const requestLogin = async (email, password) => {
-    const response = await requestApi('login', {email, password}, { method: 'POST' })
+export const requestLogin = (email, password) => requestApi('login', {email, password}, 'POST')
 
-    return response
-}
+export const getProfile = () => requestApi('profile')
