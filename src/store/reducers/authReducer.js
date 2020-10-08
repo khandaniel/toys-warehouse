@@ -1,14 +1,14 @@
-import Cookies from 'universal-cookie'
+import Cookies from 'universal-cookie';
 
-const cookies = new Cookies()
-const token = cookies.get('token')
+const cookies = new Cookies();
+const token = cookies.get('token');
 
 const initialState = {
   token,
   isAuthorized: !!token,
   form: {
     email: '',
-    password: ''
+    password: '',
   },
   profile: {
     id: '',
@@ -16,7 +16,7 @@ const initialState = {
   },
   loading: false,
   error: null,
-}
+};
 
 export default (state = initialState, action) => {
   switch (action.type) {
@@ -25,14 +25,14 @@ export default (state = initialState, action) => {
         ...state,
         form: {
           ...state.form,
-          ...action.fields
-        }
-      }
+          ...action.fields,
+        },
+      };
     case 'AUTH_START':
       return {
         ...state,
-        loading: true
-      }
+        loading: true,
+      };
     case 'AUTH_SUCCESS':
       return {
         ...state,
@@ -40,31 +40,31 @@ export default (state = initialState, action) => {
         isAuthorized: true,
         form: {
           email: '',
-          password: ''
-        }
-      }
+          password: '',
+        },
+      };
     case 'AUTH_FAIL':
       return {
         ...state,
-        error: action.error
-      }
+        error: action.error,
+      };
     case 'AUTH_FINISH':
       return {
         ...state,
-        loading: false
-      }
+        loading: false,
+      };
     case 'AUTH_DISCARD':
       return {
         ...initialState,
         isAuthorized: false,
-        token: ''
-      }
+        token: '',
+      };
     case 'PROFILE_RECEIVED':
       return {
         ...state,
-        profile: action.profile
-      }
+        profile: action.profile,
+      };
     default:
       return state;
   }
-}
+};

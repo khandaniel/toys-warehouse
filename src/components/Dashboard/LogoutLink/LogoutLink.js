@@ -1,26 +1,28 @@
-import React, {useEffect} from 'react'
-import {Link} from 'react-router-dom'
-import {useDispatch, useSelector} from 'react-redux'
-import {routes} from '../../../config'
-import {loadProfile} from '../../../store/actions/authActions'
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { routes } from '../../../config';
+import { loadProfile } from '../../../store/actions/authActions';
 
 const LogoutLink = () => {
-    const isAuthorized = useSelector(state => state.auth.isAuthorized)
-    const token = useSelector(state => state.auth.token)
-    const email = useSelector(state => state.auth.profile.email)
-    const dispatch = useDispatch()
+  const isAuthorized = useSelector((state) => state.auth.isAuthorized);
+  const token = useSelector((state) => state.auth.token);
+  const email = useSelector((state) => state.auth.profile.email);
+  const dispatch = useDispatch();
 
-    useEffect(() => {
-        dispatch(loadProfile())
-    }, [token, dispatch])
+  useEffect(() => {
+    dispatch(loadProfile());
+  }, [token, dispatch]);
 
-    return isAuthorized ? (
-        <div>
-            <Link to={`${routes.logout}?token=${token}`}>
-                Log Out (<code>{ email }</code>)
-            </Link>
-        </div>
-    ) : null;
-}
+  return isAuthorized ? (
+    <div>
+      <Link to={`${routes.logout}?token=${token}`}>
+        Log Out (
+        <code>{ email }</code>
+        )
+      </Link>
+    </div>
+  ) : null;
+};
 
-export default LogoutLink
+export default LogoutLink;

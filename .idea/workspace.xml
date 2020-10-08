@@ -11,36 +11,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4ecab826-4a32-49f6-b738-370472defcda" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Dashboard/Categories/Categories.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Dashboard/EditForm/EditForm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Dashboard/LogoutLink/LogoutLink.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Dashboard/Transactions/Transactions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Navigation/Navigation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/TransactionForm/TransactionForm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/middlewares/authChecker.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/categoryService.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/toyService.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/transactionService.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/store/actions/categoriesActions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/store/actions/toysActions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/store/actions/transactionsActions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/store/reducers/categoriesReducer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/store/reducers/transactionsReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/toys-warehouse.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/toys-warehouse.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/About/About.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/About/About.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/App/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/AuthScreen/AuthScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AuthScreen/AuthScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Dashboard/Categories/Categories.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dashboard/Categories/Categories.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Dashboard/Dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dashboard/Dashboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Dashboard/EditForm/EditForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dashboard/EditForm/EditForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Dashboard/LogoutLink/LogoutLink.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dashboard/LogoutLink/LogoutLink.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Dashboard/Row/Row.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dashboard/Row/Row.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Dashboard/Transactions/Transactions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dashboard/Transactions/Transactions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navigation/Navigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navigation/Navigation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/TransactionForm/TransactionForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TransactionForm/TransactionForm.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/middlewares/loginChecker.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/About/About.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/middlewares/authChecker.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/middlewares/authChecker.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/authService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/authService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/categoryService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/categoryService.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/networkProvider.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/networkProvider.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/toyService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/toyService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/transactionService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/transactionService.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/actions/authActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/authActions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/productsActions.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/actions/categoriesActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/categoriesActions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/actions/toysActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/toysActions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/actions/transactionsActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/transactionsActions.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/reducers/authReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/authReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/productReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/toysReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/reducers/categoriesReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/categoriesReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/reducers/toysReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/toysReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/reducers/transactionsReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/transactionsReducer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,14 +64,19 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="js.linters.configure.manually.selectedeslint" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/Dashboard" />
     <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.standard" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.standard" value="" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="editing.templates" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -88,7 +94,17 @@
       <recent name="$PROJECT_DIR$/src/components" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="npm.start">
+    <configuration name="lint" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="lint" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -101,6 +117,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.lint" />
         <item itemvalue="npm.start" />
       </list>
     </recent_temporary>
@@ -126,7 +143,7 @@
       <workItem from="1601907852291" duration="1224000" />
       <workItem from="1601909891305" duration="21649000" />
       <workItem from="1601999775021" duration="7785000" />
-      <workItem from="1602056408476" duration="40681000" />
+      <workItem from="1602056408476" duration="55766000" />
     </task>
     <servers />
   </component>
@@ -146,6 +163,18 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="646" y="304" width="765" height="538" key="#ESLint" timestamp="1602107248632">
+      <screen x="0" y="27" width="1920" height="1004" />
+    </state>
+    <state x="646" y="304" width="765" height="538" key="#ESLint/1920.0.1920.1080/0.27.1920.1004@0.27.1920.1004" timestamp="1602107248632" />
+    <state x="654" y="216" key="#JavaScript" timestamp="1602111602813">
+      <screen x="0" y="27" width="1920" height="1004" />
+    </state>
+    <state x="654" y="216" key="#JavaScript/1920.0.1920.1080/0.27.1920.1004@0.27.1920.1004" timestamp="1602111602813" />
+    <state x="679" y="360" width="551" height="335" key="#com.intellij.codeInsight.template.impl.EditVariableDialog" timestamp="1602112822900">
+      <screen x="0" y="27" width="1920" height="1004" />
+    </state>
+    <state x="679" y="360" width="551" height="335" key="#com.intellij.codeInsight.template.impl.EditVariableDialog/1920.0.1920.1080/0.27.1920.1004@0.27.1920.1004" timestamp="1602112822900" />
     <state x="604" y="287" width="583" height="403" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1601889547031">
       <screen x="0" y="27" width="1920" height="1004" />
     </state>
@@ -155,26 +184,30 @@
       <screen x="0" y="27" width="1920" height="1004" />
     </state>
     <state x="733" y="161" width="424" height="484" key="FileChooserDialogImpl/1920.0.1920.1080/0.27.1920.1004@0.27.1920.1004" timestamp="1601128499932" />
-    <state width="1874" height="262" key="GridCell.Tab.0.bottom" timestamp="1600708465106">
+    <state width="1874" height="262" key="GridCell.Tab.0.bottom" timestamp="1602118626092">
       <screen x="0" y="27" width="1920" height="1004" />
     </state>
     <state width="1554" height="200" key="GridCell.Tab.0.bottom/0.27.1600.823@0.27.1600.823" timestamp="1600624182839" />
-    <state width="1874" height="262" key="GridCell.Tab.0.bottom/1920.0.1920.1080/0.27.1920.1004@0.27.1920.1004" timestamp="1600708465106" />
-    <state width="1874" height="262" key="GridCell.Tab.0.center" timestamp="1600708465106">
+    <state width="1874" height="262" key="GridCell.Tab.0.bottom/1920.0.1920.1080/0.27.1920.1004@0.27.1920.1004" timestamp="1602118626092" />
+    <state width="1874" height="262" key="GridCell.Tab.0.center" timestamp="1602118626092">
       <screen x="0" y="27" width="1920" height="1004" />
     </state>
     <state width="1554" height="200" key="GridCell.Tab.0.center/0.27.1600.823@0.27.1600.823" timestamp="1600624182838" />
-    <state width="1874" height="262" key="GridCell.Tab.0.center/1920.0.1920.1080/0.27.1920.1004@0.27.1920.1004" timestamp="1600708465106" />
-    <state width="1874" height="262" key="GridCell.Tab.0.left" timestamp="1600708465106">
+    <state width="1874" height="262" key="GridCell.Tab.0.center/1920.0.1920.1080/0.27.1920.1004@0.27.1920.1004" timestamp="1602118626092" />
+    <state width="1874" height="262" key="GridCell.Tab.0.left" timestamp="1602118626092">
       <screen x="0" y="27" width="1920" height="1004" />
     </state>
     <state width="1554" height="200" key="GridCell.Tab.0.left/0.27.1600.823@0.27.1600.823" timestamp="1600624182837" />
-    <state width="1874" height="262" key="GridCell.Tab.0.left/1920.0.1920.1080/0.27.1920.1004@0.27.1920.1004" timestamp="1600708465106" />
-    <state width="1874" height="262" key="GridCell.Tab.0.right" timestamp="1600708465106">
+    <state width="1874" height="262" key="GridCell.Tab.0.left/1920.0.1920.1080/0.27.1920.1004@0.27.1920.1004" timestamp="1602118626092" />
+    <state width="1874" height="262" key="GridCell.Tab.0.right" timestamp="1602118626092">
       <screen x="0" y="27" width="1920" height="1004" />
     </state>
     <state width="1554" height="200" key="GridCell.Tab.0.right/0.27.1600.823@0.27.1600.823" timestamp="1600624182839" />
-    <state width="1874" height="262" key="GridCell.Tab.0.right/1920.0.1920.1080/0.27.1920.1004@0.27.1920.1004" timestamp="1600708465106" />
+    <state width="1874" height="262" key="GridCell.Tab.0.right/1920.0.1920.1080/0.27.1920.1004@0.27.1920.1004" timestamp="1602118626092" />
+    <state x="449" y="163" key="SettingsEditor" timestamp="1602112824553">
+      <screen x="0" y="27" width="1920" height="1004" />
+    </state>
+    <state x="449" y="163" key="SettingsEditor/1920.0.1920.1080/0.27.1920.1004@0.27.1920.1004" timestamp="1602112824553" />
     <state width="498" height="446" key="SwitcherDM" timestamp="1601922617964">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
@@ -188,11 +221,11 @@
       <screen x="0" y="27" width="1920" height="1004" />
     </state>
     <state x="651" y="267" width="618" height="558" key="find.popup/1920.0.1920.1080/0.27.1920.1004@0.27.1920.1004" timestamp="1602096655529" />
-    <state x="557" y="231" key="run.anything.popup" timestamp="1602097255728">
+    <state x="557" y="231" key="run.anything.popup" timestamp="1602107755050">
       <screen x="0" y="27" width="1920" height="1004" />
     </state>
     <state x="464" y="194" key="run.anything.popup/0.27.1600.823@0.27.1600.823" timestamp="1600634152777" />
-    <state x="557" y="231" key="run.anything.popup/1920.0.1920.1080/0.27.1920.1004@0.27.1920.1004" timestamp="1602097255728" />
+    <state x="557" y="231" key="run.anything.popup/1920.0.1920.1080/0.27.1920.1004@0.27.1920.1004" timestamp="1602107755050" />
     <state x="2477" y="219" key="run.anything.popup/1920.0.1920.1080/0.27.1920.1004@1920.0.1920.1080" timestamp="1601922548071" />
     <state x="556" y="203" width="807" height="828" key="search.everywhere.popup" timestamp="1602089243236">
       <screen x="0" y="27" width="1920" height="1004" />

@@ -1,13 +1,13 @@
-import {requestApi} from './networkProvider'
+import requestApi from './networkProvider';
 
-const route = 'categories'
+const route = 'categories';
 
-export const getCategories = () => requestApi(route)
+export const getCategories = () => requestApi(route);
 
-export const createCategory = name => requestApi(route, { name }, 'POST')
+export const createCategory = (name) => requestApi(route, { name }, 'POST');
 
-export const getCategory = id => requestApi(`${route}/${id}`)
+export const getCategory = (id) => requestApi(`${route}/${id}`);
 
-export const updateCategory = (id, name) => requestApi(`${route}/${id}`, { name }, 'PUT')
+export const updateCategory = (id, name) => requestApi(`${route}/${id}`, { name }, 'PUT');
 
-export const deleteCategory = id => requestApi(`${route}/${id}`, null, 'DELETE')
+export const deleteCategory = (id) => requestApi(`${route}/${id}`, null, 'DELETE');
