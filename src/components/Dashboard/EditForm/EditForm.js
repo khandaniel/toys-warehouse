@@ -112,6 +112,7 @@ const EditForm = ({item, isNew = false}) => {
           value={editingItem.quantity}
           name="quantity"
           onChange={onToyEditFormChange}
+          inputProps={{ min: 0 }}
           disabled={!isNew}
         />
       </TableCell>
@@ -122,6 +123,7 @@ const EditForm = ({item, isNew = false}) => {
           value={editingItem.price}
           name="price"
           onChange={onToyEditFormChange}
+          inputProps={{ min: 0 }}
           disabled={!isNew}
           required
         />

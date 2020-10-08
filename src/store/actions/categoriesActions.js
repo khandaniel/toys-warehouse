@@ -3,12 +3,14 @@ import {
 } from '../../services/categoryService';
 
 export const loadCategories = () => (dispatch) => {
+  dispatch({ type: 'CATEGORIES_REQUESTED' });
   getCategories().then(({ categories }) => {
     dispatch({
       type: 'CATEGORIES_RECEIVED',
       categories,
     });
-  });
+  }).catch((error) => categoriesError(error, dispatch))
+    .finally(() => dispatch({ type: 'CATEGORIES_LOAD_FINISH' }));
 };
 
 export const deleteCategoryAction = (categoryId) => (dispatch) => {
@@ -46,3 +48,10 @@ export const saveCategoryAction = (category) => (dispatch) => {
     category: categoryUpdated,
   }));
 };
+
+const categoriesError = (error, dispatch) => {
+  dispatch({
+    type: 'CATEGORIES_ERROR',
+    error: error.message
+  });
+}

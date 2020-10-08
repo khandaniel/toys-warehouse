@@ -1,4 +1,5 @@
 import {createTransaction, getTransactions} from '../../services/transactionService';
+import {loadToys} from "./toysActions";
 
 export const loadTransactions = () => (dispatch) => {
   getTransactions().then(({ transactions }) => {
@@ -6,7 +7,7 @@ export const loadTransactions = () => (dispatch) => {
       type: 'TRANSACTIONS_RECEIVED',
       transactions,
     });
-  });
+  }).catch((error) => transactionError(error, dispatch));
 };
 
 export const selectTxType = (txType) => ({
@@ -33,8 +34,20 @@ export const removeToyFromTx = (id) => ({
 });
 
 export const submitTransaction = (tx) => (dispatch) => {
-  createTransaction(tx).then((txReceived) => dispatch({
-    type: 'NEW_TRANSACTION_RECEIVED',
-    transaction: txReceived,
-  }));
+  createTransaction(tx).then((txReceived) => {
+    dispatch({
+      type: 'NEW_TRANSACTION_RECEIVED',
+      transaction: txReceived,
+    })
+    dispatch(loadToys());
+  }).catch((error) => transactionError(error, dispatch));
 };
+
+export const resetTransaction = {
+  type: 'RESET_NEW_TRANSACTION',
+};
+
+const transactionError = (error, dispatch) => dispatch({
+  type: 'TRANSACTION_ERROR',
+  error: error.message
+})

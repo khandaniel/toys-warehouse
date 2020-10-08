@@ -8,6 +8,7 @@ const LogoutLink = () => {
   const isAuthorized = useSelector((state) => state.auth.isAuthorized);
   const token = useSelector((state) => state.auth.token);
   const email = useSelector((state) => state.auth.profile.email);
+  const profileError = useSelector((state) => state.auth.profileError);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -17,9 +18,9 @@ const LogoutLink = () => {
   return isAuthorized ? (
     <div>
       <Link to={`${routes.logout}?token=${token}`}>
-        Log Out (
-        <code>{ email }</code>
-        )
+        Log Out
+        { !profileError && ( <code>({email})</code> )
+        }
       </Link>
     </div>
   ) : null;

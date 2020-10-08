@@ -26,6 +26,7 @@ const Categories = () => {
   const categories = useSelector((state) => state.categories.list);
   const toys = useSelector((state) => state.toys.items);
   const loading = useSelector((state) => state.categories.loading);
+  const error = useSelector((state) => state.categories.error);
   const newCategory = useSelector((state) => state.categories.newCategory);
   const editing = useSelector((state) => state.categories.editing);
   const onCategoryDelete = useCallback((categoryId) => {
@@ -63,7 +64,11 @@ const Categories = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            { loading && <TableCell align="center"><CircularProgress /></TableCell>}
+            { loading && (
+              <TableRow>
+                <TableCell align="center" colSpan={2}><CircularProgress /></TableCell>
+              </TableRow>
+            )}
             {categories.map((category) => {
               const toysInCategory = toys.filter((toy) => toy.category.id === category.id);
 
@@ -95,6 +100,14 @@ const Categories = () => {
                 </TableRow>
               );
             })}
+            { (!categories.length || !!error) && (
+              <TableRow>
+                <TableCell colSpan={2} align="center">
+                  {(!categories.length && !error) && <>No categories yet. Create one below.</>}
+                  {!!error && <>Couldn't load categories ({error})</>}
+                </TableCell>
+              </TableRow>
+            )}
             <TableRow>
               <TableCell>
                 <TextField
@@ -104,7 +117,7 @@ const Categories = () => {
                 />
               </TableCell>
               <TableCell align="center">
-                <Button onClick={onCategoryAdd}>Add</Button>
+                <Button onClick={onCategoryAdd} disabled={!!error}>Add</Button>
               </TableCell>
             </TableRow>
           </TableBody>

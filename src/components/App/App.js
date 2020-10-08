@@ -44,6 +44,9 @@ const App = () => {
           <Route path={routes.about}>
             <About />
           </Route>
+          <Route path="*">
+            <h1>YOU'RE NOT SUPPOSED TO BE HERE!</h1>
+          </Route>
         </Switch>
       </Router>
     </div>

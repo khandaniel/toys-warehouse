@@ -14,8 +14,9 @@ const initialState = {
     id: '',
     email: '',
   },
+  profileError: '',
   loading: false,
-  error: null,
+  error: '',
 };
 
 export default (state = initialState, action) => {
@@ -64,6 +65,11 @@ export default (state = initialState, action) => {
         ...state,
         profile: action.profile,
       };
+    case 'PROFILE_FETCH_FAILED':
+      return {
+        ...state,
+        profileError: action.error
+      }
     default:
       return state;
   }

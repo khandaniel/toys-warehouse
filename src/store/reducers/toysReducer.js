@@ -9,14 +9,31 @@ const initialState = {
     price: 0,
     description: '',
   },
+  error: '',
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
+    case 'TOYS_LOAD_START':
+      return {
+        ...state,
+        loading: true,
+      }
     case 'TOYS_RECEIVED':
       return {
         ...state,
-        items: action.toys,
+        items: action.toys ? action.toys : [],
+        loading: false,
+        error: '',
+      };
+    case 'TOYS_LOADING_ERROR':
+      return {
+        ...state,
+        error: action.error,
+      };
+    case 'TOYS_REQUEST_FINISH':
+      return {
+        ...state,
         loading: false,
       };
     case 'INIT_TOY_EDITING':

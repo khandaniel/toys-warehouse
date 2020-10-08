@@ -7,9 +7,8 @@ const initialSettings = {
 const cookie = new Cookies();
 
 const requestApi = async (route, data = null, method = 'GET', settings = {}) => {
-  try {
     const token = cookie.get('token');
-    const response = await fetch([baseUrl, route].join('/'), {
+    return  fetch([baseUrl, route].join('/'), {
       ...initialSettings,
       ...settings,
       headers: {
@@ -19,12 +18,8 @@ const requestApi = async (route, data = null, method = 'GET', settings = {}) => 
       },
       method,
       body: ['GET', 'DELETE'].includes(method) ? null : JSON.stringify(data),
-    });
-
-    return await response.json();
-  } catch (error) {
-    return error;
-  }
+    })
+      .then((response) => response.json());
 };
 
 export default requestApi;

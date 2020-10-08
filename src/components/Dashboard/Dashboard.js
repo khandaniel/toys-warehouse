@@ -21,7 +21,8 @@ import TransactionForm from '../TransactionForm/TransactionForm';
 function Dashboard() {
   const isAuthorized = useSelector((state) => state.auth.isAuthorized);
   const loading = useSelector((state) => state.toys.loading);
-  const toys = useSelector((state) => (state.toys.items ? state.toys.items : []));
+  const error = useSelector((state) => state.toys.error);
+  const toys = useSelector((state) => (state.toys.items));
   const newToy = useSelector((state) => state.toys.newToy);
   const dispatch = useDispatch();
 
@@ -35,7 +36,7 @@ function Dashboard() {
 
   return (
     <div>
-      <TransactionForm />
+      { !!toys.length && <TransactionForm/>}
       <TableContainer component={Paper} style={{backgroundColor: '#FAFAFA'}}>
         <Table>
           <TableHead>
@@ -54,7 +55,10 @@ function Dashboard() {
           </TableBody>
           <TableFooter>
             <TableRow>
-              <EditForm item={newToy} isNew />
+              { !!error && (
+                <TableCell  align="center" colSpan={7}>Couldn't load toys ({error})</TableCell>
+              ) }
+              { !error && <EditForm item={newToy} isNew/> }
             </TableRow>
           </TableFooter>
         </Table>

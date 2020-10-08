@@ -4,6 +4,7 @@ const initialState = {
     toys: [],
     type: 'incoming',
   },
+  error: '',
 };
 
 export default (state = initialState, action) => {
@@ -11,7 +12,7 @@ export default (state = initialState, action) => {
     case 'TRANSACTIONS_RECEIVED':
       return {
         ...state,
-        list: action.transactions,
+        list: action.transactions ? action.transactions : [],
       };
     case 'UPDATE_TX_TYPE':
       return {
@@ -68,6 +69,16 @@ export default (state = initialState, action) => {
         ],
         newTransaction: initialState.newTransaction,
       };
+    case 'RESET_NEW_TRANSACTION':
+      return {
+        ...state,
+        newTransaction: initialState.newTransaction,
+      }
+    case 'TRANSACTION_ERROR':
+      return {
+        ...state,
+        error: action.error,
+      }
     default:
       return state;
   }

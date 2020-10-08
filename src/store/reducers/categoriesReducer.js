@@ -3,6 +3,7 @@ const initialState = {
   loading: false,
   newCategory: '',
   editing: {},
+  error: '',
 };
 
 export default (state = initialState, action) => {
@@ -15,9 +16,14 @@ export default (state = initialState, action) => {
     case 'CATEGORIES_RECEIVED':
       return {
         ...state,
-        list: action.categories,
+        list: action.categories ? action.categories : [],
         loading: false,
       };
+    case 'CATEGORIES_LOAD_FINISH':
+      return {
+        ...state,
+        loading: false,
+      }
     case 'NEW_CATEGORY_UPDATED':
       return {
         ...state,
@@ -63,6 +69,11 @@ export default (state = initialState, action) => {
           [action.category.id]: null,
         },
       };
+    case 'CATEGORIES_ERROR':
+      return {
+        ...state,
+        error: action.error,
+      }
     default:
       return state;
   }

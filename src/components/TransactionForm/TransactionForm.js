@@ -18,13 +18,14 @@ import {
 import {useDispatch, useSelector} from 'react-redux';
 import {loadToys} from '../../store/actions/toysActions';
 import {
-  addToyToTx, removeToyFromTx, selectTxType, submitTransaction, updateTxToysQuantity,
+  addToyToTx, removeToyFromTx, resetTransaction, selectTxType, submitTransaction, updateTxToysQuantity,
 } from '../../store/actions/transactionsActions';
 
 const TransactionForm = () => {
   const dispatch = useDispatch();
   const toys = useSelector((state) => state.toys.items);
   const newTx = useSelector((state) => state.transactions.newTransaction);
+  const error = useSelector((state) => state.transactions.error);
   const {type: txType, toys: selectedToysTxs} = newTx;
   const selectedToysIds = selectedToysTxs.map((item) => item.id);
   const selectedToys = toys.filter((item) => selectedToysIds.includes(item.id));
@@ -43,6 +44,9 @@ const TransactionForm = () => {
   const onTxSubmit = useCallback(() => {
     dispatch(submitTransaction(newTx));
   }, [dispatch, newTx]);
+  const onTxReset = useCallback(() => {
+    dispatch(resetTransaction);
+  }, [dispatch]);
 
   return (
     <Paper style={{marginBottom: 20, padding: 20}}>
@@ -85,7 +89,7 @@ const TransactionForm = () => {
                           type="number"
                           value={selectedTxToy.quantity}
                           onChange={(e) => onQuantityChange(item.id, e.target)}
-                          inputProps={{min: 1, max: item.quantity}}
+                          inputProps={{min: 1, max: txType === 'outcoming' ? item.quantity : null }}
                         />
                       </TableCell>
                       <TableCell>{item.price}</TableCell>
@@ -123,6 +127,11 @@ const TransactionForm = () => {
                     >
                       Create
                     </Button>
+                    <Button
+                      onClick={onTxReset}
+                    >
+                      reset
+                    </Button>
                   </TableCell>
                 </TableRow>
               </TableFooter>
@@ -130,6 +139,7 @@ const TransactionForm = () => {
           </TableContainer>
         )}
         <TransactionToySelect toys={toys.filter((item) => !selectedToysIds.includes(item.id))} />
+        { !!error && error}
       </div>
     </Paper>
   );
@@ -144,7 +154,6 @@ const TransactionToySelect = ({toys}) => {
     setToySelectedId(target.value);
   }, []);
   const onToySelectConfirm = useCallback(() => {
-    // const toy = toys.find((item) => item.id === toySelectedId);
     dispatch(addToyToTx(toySelectedId));
     setToySelectedId('');
   }, [dispatch, toySelectedId]);

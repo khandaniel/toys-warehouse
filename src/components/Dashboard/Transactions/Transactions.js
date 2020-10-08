@@ -7,7 +7,7 @@ import {
   TableHead,
   TableBody,
   TableContainer,
-  Paper,
+  Paper, TableFooter,
 } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
 import { loadTransactions } from '../../../store/actions/transactionsActions';
@@ -24,8 +24,9 @@ const styles = {
 };
 
 function Transactions() {
-  const transactions = useSelector((state) => state.transactions.list);
   const dispatch = useDispatch();
+  const transactions = useSelector((state) => state.transactions.list);
+  const error = useSelector((state) => state.transactions.error);
 
   useEffect(() => {
     dispatch(loadTransactions());
@@ -96,6 +97,14 @@ function Transactions() {
               </TableRow>
             ))}
           </TableBody>
+          <TableFooter>
+            <TableRow>
+              <TableCell colSpan={5} align="center">
+                { (!transactions.length && !error) && <>No transaction yet.</> }
+                { !!error && <>Couldn't load transactions ({error})</> }
+              </TableCell>
+            </TableRow>
+          </TableFooter>
         </Table>
       </TableContainer>
     </div>

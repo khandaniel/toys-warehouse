@@ -19,14 +19,16 @@ export const login = (email, password) => (dispatch) => {
     } else {
       dispatch({
         type: 'AUTH_FAIL',
-        error: loginResult.message,
+        error: loginResult.statusCode === 401
+          ? "Password or login is incorrect. Try again." : loginResult.message,
       });
     }
-
-    dispatch({
-      type: 'AUTH_FINISH',
-    });
-  });
+  }).catch((error) => dispatch({
+    type: 'AUTH_FAIL',
+    error: error.message
+  })).finally(() => dispatch({
+    type: 'AUTH_FINISH',
+  }));
 };
 
 export const logout = (token) => (dispatch) => {
@@ -46,5 +48,8 @@ export const loadProfile = () => (dispatch) => {
       type: 'PROFILE_RECEIVED',
       profile: { id, email },
     });
-  });
+  }).catch((error) => dispatch({
+    type: 'PROFILE_FETCH_FAILED',
+    error: error.message
+  }));
 };
