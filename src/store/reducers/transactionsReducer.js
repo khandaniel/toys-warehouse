@@ -68,6 +68,7 @@ export default (state = initialState, action) => {
           action.transaction,
         ],
         newTransaction: initialState.newTransaction,
+        error: '',
       };
     case 'RESET_NEW_TRANSACTION':
       return {
