@@ -18,7 +18,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         loading: true,
-      }
+      };
     case 'TOYS_RECEIVED':
       return {
         ...state,

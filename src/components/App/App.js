@@ -35,10 +35,10 @@ const App = () => {
           <Route path={routes.dash}>
             <Dashboard />
           </Route>
-          <Route path={routes.transactions + '/:txId'} children={<Transactions />} />
-          <Route path={routes.transactions}>
+          <Route path={`${routes.transactions}/:txId`}>
             <Transactions />
           </Route>
+          <Route path={routes.transactions} />
           <Route path={routes.categories}>
             <Categories />
           </Route>
@@ -46,7 +46,7 @@ const App = () => {
             <About />
           </Route>
           <Route path="*">
-            <h1>YOU'RE NOT SUPPOSED TO BE HERE!</h1>
+            <h1>YOU ARE NOT SUPPOSED TO BE HERE!</h1>
           </Route>
         </Switch>
       </Router>

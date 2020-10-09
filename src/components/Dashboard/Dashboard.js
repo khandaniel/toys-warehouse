@@ -36,8 +36,8 @@ function Dashboard() {
 
   return (
     <div>
-      { !!toys.length && <TransactionForm/>}
-      <TableContainer component={Paper} style={{backgroundColor: '#FAFAFA'}}>
+      { !!toys.length && <TransactionForm />}
+      <TableContainer component={Paper} style={{ backgroundColor: '#FAFAFA' }}>
         <Table>
           <TableHead>
             <TableRow style={{ backgroundColor: '#AAFFAA' }}>
@@ -56,9 +56,11 @@ function Dashboard() {
           <TableFooter>
             <TableRow>
               { !!error && (
-                <TableCell  align="center" colSpan={7}>Couldn't load toys ({error})</TableCell>
+                <TableCell align="center" colSpan={7}>
+                  { `Couldn't load toys (${error})` }
+                </TableCell>
               ) }
-              { !error && <EditForm item={newToy} isNew/> }
+              { !error && <EditForm item={newToy} isNew /> }
             </TableRow>
           </TableFooter>
         </Table>

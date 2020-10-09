@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useState} from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import {
   Paper,
@@ -15,10 +15,15 @@ import {
   TableBody,
   TableCell, TableFooter,
 } from '@material-ui/core';
-import {useDispatch, useSelector} from 'react-redux';
-import {loadToys} from '../../store/actions/toysActions';
+import { useDispatch, useSelector } from 'react-redux';
+import { loadToys } from '../../store/actions/toysActions';
 import {
-  addToyToTx, removeToyFromTx, resetTransaction, selectTxType, submitTransaction, updateTxToysQuantity,
+  addToyToTx,
+  removeToyFromTx,
+  resetTransaction,
+  selectTxType,
+  submitTransaction,
+  updateTxToysQuantity,
 } from '../../store/actions/transactionsActions';
 
 const TransactionForm = () => {
@@ -26,13 +31,13 @@ const TransactionForm = () => {
   const toys = useSelector((state) => state.toys.items);
   const newTx = useSelector((state) => state.transactions.newTransaction);
   const error = useSelector((state) => state.transactions.error);
-  const {type: txType, toys: selectedToysTxs} = newTx;
+  const { type: txType, toys: selectedToysTxs } = newTx;
   const selectedToysIds = selectedToysTxs.map((item) => item.id);
   const selectedToys = toys.filter((item) => selectedToysIds.includes(item.id));
   useEffect(() => {
     dispatch(loadToys());
   }, [dispatch]);
-  const onTypeSelect = useCallback(({target}) => {
+  const onTypeSelect = useCallback(({ target }) => {
     dispatch(selectTxType(target.value));
   }, [dispatch]);
   const onQuantityChange = useCallback((id, target) => {
@@ -49,7 +54,7 @@ const TransactionForm = () => {
   }, [dispatch]);
 
   return (
-    <Paper style={{marginBottom: 20, padding: 20}}>
+    <Paper style={{ marginBottom: 20, padding: 20 }}>
       <Typography variant="h6">Create Transaction</Typography>
       <div>
         <InputLabel id="tx-type-select">Transaction Type:</InputLabel>
@@ -67,9 +72,9 @@ const TransactionForm = () => {
           </MenuItem>
         </Select>
         { !!selectedToys.length && (
-          <TableContainer style={{marginTop: 20}}>
+          <TableContainer style={{ marginTop: 20 }}>
             <Table>
-              <TableHead style={{backgroundColor: '#AAAAFF'}}>
+              <TableHead style={{ backgroundColor: '#AAAAFF' }}>
                 <TableRow>
                   <TableCell>Name</TableCell>
                   <TableCell>Quantity</TableCell>
@@ -89,7 +94,7 @@ const TransactionForm = () => {
                           type="number"
                           value={selectedTxToy.quantity}
                           onChange={(e) => onQuantityChange(item.id, e.target)}
-                          inputProps={{min: 1, max: txType === 'outcoming' ? item.quantity : null }}
+                          inputProps={{ min: 1, max: txType === 'outcoming' ? item.quantity : null }}
                         />
                       </TableCell>
                       <TableCell>{item.price}</TableCell>
@@ -139,7 +144,7 @@ const TransactionForm = () => {
           </TableContainer>
         )}
         <TransactionToySelect toys={toys.filter((item) => !selectedToysIds.includes(item.id))} />
-        { !!error && error}
+        { !!error && error }
       </div>
     </Paper>
   );
@@ -147,10 +152,10 @@ const TransactionForm = () => {
 
 export default TransactionForm;
 
-const TransactionToySelect = ({toys}) => {
+const TransactionToySelect = ({ toys }) => {
   const dispatch = useDispatch();
   const [toySelectedId, setToySelectedId] = useState('');
-  const onToySelect = useCallback(({target}) => {
+  const onToySelect = useCallback(({ target }) => {
     setToySelectedId(target.value);
   }, []);
   const onToySelectConfirm = useCallback(() => {
@@ -159,13 +164,13 @@ const TransactionToySelect = ({toys}) => {
   }, [dispatch, toySelectedId]);
 
   return (
-    <div style={{marginTop: 20}}>
+    <div style={{ marginTop: 20 }}>
       <InputLabel id="tx-toy-select">Select a Toy:</InputLabel>
       <Select
         labelId="tx-toy-select"
         value={toySelectedId}
         onChange={onToySelect}
-        style={{minWidth: 100}}
+        style={{ minWidth: 100 }}
       >
         {toys.map((toy) => (
           <MenuItem key={toy.id} value={toy.id}>

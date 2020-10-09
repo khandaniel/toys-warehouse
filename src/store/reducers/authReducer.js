@@ -68,8 +68,8 @@ export default (state = initialState, action) => {
     case 'PROFILE_FETCH_FAILED':
       return {
         ...state,
-        profileError: action.error
-      }
+        profileError: action.error,
+      };
     default:
       return state;
   }

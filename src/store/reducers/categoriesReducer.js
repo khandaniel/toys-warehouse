@@ -24,7 +24,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-      }
+      };
     case 'NEW_CATEGORY_UPDATED':
       return {
         ...state,
@@ -74,7 +74,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         error: action.error,
-      }
+      };
     default:
       return state;
   }

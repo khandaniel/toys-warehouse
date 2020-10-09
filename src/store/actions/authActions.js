@@ -20,12 +20,12 @@ export const login = (email, password) => (dispatch) => {
       dispatch({
         type: 'AUTH_FAIL',
         error: loginResult.statusCode === 401
-          ? "Password or login is incorrect. Try again." : loginResult.message,
+          ? 'Password or login is incorrect. Try again.' : loginResult.message,
       });
     }
   }).catch((error) => dispatch({
     type: 'AUTH_FAIL',
-    error: error.message
+    error: error.message,
   })).finally(() => dispatch({
     type: 'AUTH_FINISH',
   }));
@@ -50,6 +50,6 @@ export const loadProfile = () => (dispatch) => {
     });
   }).catch((error) => dispatch({
     type: 'PROFILE_FETCH_FAILED',
-    error: error.message
+    error: error.message,
   }));
 };

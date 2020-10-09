@@ -73,12 +73,12 @@ export default (state = initialState, action) => {
       return {
         ...state,
         newTransaction: initialState.newTransaction,
-      }
+      };
     case 'TRANSACTION_ERROR':
       return {
         ...state,
         error: action.error,
-      }
+      };
     default:
       return state;
   }

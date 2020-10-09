@@ -19,8 +19,13 @@ const LogoutLink = () => {
     <div>
       <Link to={`${routes.logout}?token=${token}`}>
         Log Out
-        { !profileError && ( <code>({email})</code> )
-        }
+        { !profileError && (
+        <code>
+          (
+          {email}
+          )
+        </code>
+        )}
       </Link>
     </div>
   ) : null;

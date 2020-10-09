@@ -104,7 +104,11 @@ const Categories = () => {
               <TableRow>
                 <TableCell colSpan={2} align="center">
                   {(!categories.length && !error) && <>No categories yet. Create one below.</>}
-                  {!!error && <>Couldn't load categories ({error})</>}
+                  {!!error && (
+                  <>
+                    { `Couldn't load categories (${error})` }
+                  </>
+                  )}
                 </TableCell>
               </TableRow>
             )}

@@ -6,7 +6,7 @@ import { createTransaction } from '../../services/transactionService';
 export const loadToys = () => (dispatch) => {
   dispatch({
     type: 'TOYS_LOAD_START',
-  })
+  });
   getToys().then(({ toys }) => {
     dispatch({
       type: 'TOYS_RECEIVED',
@@ -14,11 +14,11 @@ export const loadToys = () => (dispatch) => {
     });
   }).catch((error) => dispatch({
     type: 'TOYS_LOADING_ERROR',
-    error: error.message
+    error: error.message,
   })).finally(() => {
     dispatch({
       type: 'TOYS_REQUEST_FINISH',
-    })
+    });
   });
 };
 

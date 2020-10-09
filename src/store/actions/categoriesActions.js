@@ -2,6 +2,13 @@ import {
   createCategory, deleteCategory, getCategories, updateCategory,
 } from '../../services/categoryService';
 
+const categoriesError = (error, dispatch) => {
+  dispatch({
+    type: 'CATEGORIES_ERROR',
+    error: error.message,
+  });
+};
+
 export const loadCategories = () => (dispatch) => {
   dispatch({ type: 'CATEGORIES_REQUESTED' });
   getCategories().then(({ categories }) => {
@@ -48,10 +55,3 @@ export const saveCategoryAction = (category) => (dispatch) => {
     category: categoryUpdated,
   }));
 };
-
-const categoriesError = (error, dispatch) => {
-  dispatch({
-    type: 'CATEGORIES_ERROR',
-    error: error.message
-  });
-}

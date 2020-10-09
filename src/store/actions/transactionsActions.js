@@ -1,5 +1,10 @@
-import {createTransaction, getTransactions} from '../../services/transactionService';
-import {loadToys} from "./toysActions";
+import { createTransaction, getTransactions } from '../../services/transactionService';
+import { loadToys } from './toysActions';
+
+const transactionError = (error, dispatch) => dispatch({
+  type: 'TRANSACTION_ERROR',
+  error: error.message,
+});
 
 export const loadTransactions = () => (dispatch) => {
   getTransactions().then(({ transactions }) => {
@@ -38,7 +43,7 @@ export const submitTransaction = (tx) => (dispatch) => {
     dispatch({
       type: 'NEW_TRANSACTION_RECEIVED',
       transaction: txReceived,
-    })
+    });
     dispatch(loadToys());
   }).catch((error) => transactionError(error, dispatch));
 };
@@ -46,8 +51,3 @@ export const submitTransaction = (tx) => (dispatch) => {
 export const resetTransaction = {
   type: 'RESET_NEW_TRANSACTION',
 };
-
-const transactionError = (error, dispatch) => dispatch({
-  type: 'TRANSACTION_ERROR',
-  error: error.message
-})
