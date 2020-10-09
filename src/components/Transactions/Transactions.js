@@ -64,10 +64,9 @@ function Transactions() {
             </TableRow>
           </TableHead>
           <TableBody>
-            { !txId && transactions.map((transaction) => {
-              console.log(transaction);
-              return <TransactionRow key={transaction.id} transaction={transaction}/>
-            }) }
+            { !txId && transactions.map((transaction) => (
+              <TransactionRow key={transaction.id} transaction={transaction} />
+            )) }
             { !!txId && currentTransaction && (
               <>
                 <TransactionRow transaction={currentTransaction} />

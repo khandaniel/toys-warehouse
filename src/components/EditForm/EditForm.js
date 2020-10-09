@@ -12,7 +12,8 @@ import { loadCategories } from '../../store/actions/categoriesActions';
 const EditForm = ({ item, isNew = false }) => {
   const dispatch = useDispatch();
   const onToyEditFormChange = useCallback(({ target }) => {
-    dispatch(updateEditToyForm({ [target.name]: target.value }, isNew, !isNew ? item.id : 0));
+    const value = ['quantity', 'price'].includes(target.name) ? +target.value : target.value;
+    dispatch(updateEditToyForm({ [target.name]: value }, isNew, !isNew ? item.id : 0));
   }, [dispatch, item, isNew]);
 
   const [error, setError] = useState(null);
