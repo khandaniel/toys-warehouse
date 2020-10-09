@@ -46,8 +46,6 @@ function Transactions() {
   const currentTransaction = txId ? transactions.find(({ id }) => id === txId) : null;
   const title = txId ? `Transaction: ${txId}` : 'Transactions';
   const diff = transactionDifference(txId, transactions);
-  console.log(diff);
-  console.log(txId);
 
   return (
     <div>
@@ -66,9 +64,10 @@ function Transactions() {
             </TableRow>
           </TableHead>
           <TableBody>
-            { !txId && transactions.map((transaction) => (
-              <TransactionRow key={transaction.id} transaction={transaction} />
-            )) }
+            { !txId && transactions.map((transaction) => {
+              console.log(transaction);
+              return <TransactionRow key={transaction.id} transaction={transaction}/>
+            }) }
             { !!txId && currentTransaction && (
               <>
                 <TransactionRow transaction={currentTransaction} />
@@ -154,7 +153,7 @@ const TransactionRow = ({ transaction }) => (
           </TableRow>
         </TableHead>
         <TableBody>
-          {transaction.toys.map((toy, idx) => (
+          { transaction && transaction.toys.map((toy, idx) => (
             <TableRow key={transaction.id + toy.name + toy.category.name}>
               <TableCell>
                 #
@@ -188,7 +187,7 @@ TransactionRow.propTypes = {
     id: PropTypes.string,
     date: PropTypes.string,
     type: PropTypes.string,
-    userId: PropTypes.number,
+    userId: PropTypes.string,
     toys: PropTypes.arrayOf(PropTypes.object),
   }),
 };

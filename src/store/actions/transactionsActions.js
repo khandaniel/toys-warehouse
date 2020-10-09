@@ -40,11 +40,15 @@ export const removeToyFromTx = (id) => ({
 
 export const submitTransaction = (tx) => (dispatch) => {
   createTransaction(tx).then((txReceived) => {
-    dispatch({
-      type: 'NEW_TRANSACTION_RECEIVED',
-      transaction: txReceived,
-    });
-    dispatch(loadToys());
+    if (txReceived.statusCode) {
+      transactionError(txReceived, dispatch);
+    } else {
+      dispatch({
+        type: 'NEW_TRANSACTION_RECEIVED',
+        transaction: txReceived,
+      });
+      dispatch(loadToys());
+    }
   }).catch((error) => transactionError(error, dispatch));
 };
 

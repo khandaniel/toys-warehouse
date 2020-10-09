@@ -40,8 +40,10 @@ const TransactionForm = () => {
   const onTypeSelect = useCallback(({ target }) => {
     dispatch(selectTxType(target.value));
   }, [dispatch]);
-  const onQuantityChange = useCallback((id, target) => {
-    dispatch(updateTxToysQuantity(id, target.value));
+  const onQuantityChange = useCallback((item, target) => {
+    if (target.value <= item.quantity) {
+      dispatch(updateTxToysQuantity(item.id, target.value));
+    }
   }, [dispatch]);
   const onDeleteTxToy = useCallback((id) => {
     dispatch(removeToyFromTx(id));
@@ -93,7 +95,7 @@ const TransactionForm = () => {
                         <TextField
                           type="number"
                           value={selectedTxToy.quantity}
-                          onChange={(e) => onQuantityChange(item.id, e.target)}
+                          onChange={(e) => onQuantityChange(item, e.target)}
                           inputProps={{ min: 1, max: txType === 'outcoming' ? item.quantity : null }}
                         />
                       </TableCell>
