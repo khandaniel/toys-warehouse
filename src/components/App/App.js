@@ -10,8 +10,8 @@ import AuthScreen from '../AuthScreen/AuthScreen';
 import Dashboard from '../Dashboard/Dashboard';
 import { routes } from '../../config';
 import About from '../About/About';
-import Transactions from '../Dashboard/Transactions/Transactions';
-import Categories from '../Dashboard/Categories/Categories';
+import Transactions from '../Transactions/Transactions';
+import Categories from '../Categories/Categories';
 import Navigation from '../Navigation/Navigation';
 
 const App = () => {
@@ -35,6 +35,7 @@ const App = () => {
           <Route path={routes.dash}>
             <Dashboard />
           </Route>
+          <Route path={routes.transactions + '/:txId'} children={<Transactions />} />
           <Route path={routes.transactions}>
             <Transactions />
           </Route>

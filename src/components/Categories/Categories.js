@@ -18,8 +18,8 @@ import {
   deleteCategoryAction, editCategoryAction,
   loadCategories, saveCategoryAction,
   updateNewCategory,
-} from '../../../store/actions/categoriesActions';
-import { loadToys } from '../../../store/actions/toysActions';
+} from '../../store/actions/categoriesActions';
+import { loadToys } from '../../store/actions/toysActions';
 
 const Categories = () => {
   const dispatch = useDispatch();

@@ -2,7 +2,7 @@ import React, { useCallback } from 'react';
 import { TableRow, TableCell, Button } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
-import { deleteToyAction, initEditing } from '../../../store/actions/toysActions';
+import { deleteToyAction, initEditing } from '../../store/actions/toysActions';
 import EditForm from '../EditForm/EditForm';
 
 const Row = ({ item }) => {

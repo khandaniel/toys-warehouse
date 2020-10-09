@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { routes } from '../../../config';
-import { loadProfile } from '../../../store/actions/authActions';
+import { routes } from '../../config';
+import { loadProfile } from '../../store/actions/authActions';
 
 const LogoutLink = () => {
   const isAuthorized = useSelector((state) => state.auth.isAuthorized);

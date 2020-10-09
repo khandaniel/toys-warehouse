@@ -14,8 +14,8 @@ import {
   TableFooter,
 } from '@material-ui/core';
 import { loadToys } from '../../store/actions/toysActions';
-import Row from './Row/Row';
-import EditForm from './EditForm/EditForm';
+import Row from '../Row/Row';
+import EditForm from '../EditForm/EditForm';
 import TransactionForm from '../TransactionForm/TransactionForm';
 
 function Dashboard() {

@@ -6,8 +6,8 @@ import {
 import {useDispatch, useSelector} from 'react-redux';
 import {
   createToyAction, loadToys, updateEditToyForm, updateToyAction,
-} from '../../../store/actions/toysActions';
-import {loadCategories} from '../../../store/actions/categoriesActions';
+} from '../../store/actions/toysActions';
+import {loadCategories} from '../../store/actions/categoriesActions';
 
 const EditForm = ({item, isNew = false}) => {
   const dispatch = useDispatch();

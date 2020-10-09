@@ -18,6 +18,7 @@ export default (state = initialState, action) => {
         ...state,
         list: action.categories ? action.categories : [],
         loading: false,
+        error: '',
       };
     case 'CATEGORIES_LOAD_FINISH':
       return {
