@@ -1,7 +1,7 @@
 const transactionDifference = (transactionId, transactions) => {
   const currentTransactionIdx = transactions.findIndex(({ id }) => id === transactionId);
 
-  if (!transactionId || currentTransactionIdx >= 0) {
+  if (!transactionId || currentTransactionIdx < 0) {
     return {};
   }
   const listOfLaterTransactions = [...transactions].splice(currentTransactionIdx + 1).reverse();

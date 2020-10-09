@@ -38,7 +38,9 @@ const App = () => {
           <Route path={`${routes.transactions}/:txId`}>
             <Transactions />
           </Route>
-          <Route path={routes.transactions} />
+          <Route path={routes.transactions}>
+            <Transactions />
+          </Route>
           <Route path={routes.categories}>
             <Categories />
           </Route>
