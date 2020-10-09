@@ -1,5 +1,5 @@
 import {
-  createToy, deleteToy, getToys, updateToy,
+  createToy, getToys, updateToy,
 } from '../../services/toyService';
 import { createTransaction } from '../../services/transactionService';
 
@@ -84,20 +84,6 @@ export const updateToyAction = (item) => (dispatch) => {
     dispatch({
       type: 'TOY_UPDATED',
       toy,
-    });
-  });
-};
-
-export const deleteToyAction = ({ id, quantity }) => (dispatch) => {
-  createTransaction({
-    toys: [{ id, quantity }],
-    type: 'outcoming',
-  }).then(() => {
-    deleteToy(id).then((toy) => {
-      dispatch({
-        type: 'TOY_DELETED',
-        id: toy.id,
-      });
     });
   });
 };

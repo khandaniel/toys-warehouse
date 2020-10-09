@@ -81,11 +81,6 @@ export default (state = initialState, action) => {
           [action.toy.id]: null,
         },
       };
-    case 'TOY_DELETED':
-      return {
-        ...state,
-        items: state.items.filter((item) => item.id !== action.id),
-      };
     default:
       return state;
   }

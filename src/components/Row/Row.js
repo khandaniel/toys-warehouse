@@ -2,15 +2,12 @@ import React, { useCallback } from 'react';
 import { TableRow, TableCell, Button } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
-import { deleteToyAction, initEditing } from '../../store/actions/toysActions';
+import { initEditing } from '../../store/actions/toysActions';
 import EditForm from '../EditForm/EditForm';
 
 const Row = ({ item }) => {
   const dispatch = useDispatch();
   const { id } = item;
-  const onDelete = useCallback(() => {
-    dispatch(deleteToyAction(item));
-  }, [dispatch, item]);
   const edit = useSelector((state) => state.toys.editingItems[id]);
   const onEdit = useCallback(() => {
     dispatch((initEditing(item)));
@@ -31,9 +28,6 @@ const Row = ({ item }) => {
           <TableCell>
             <Button onClick={onEdit}>
               Edit
-            </Button>
-            <Button onClick={onDelete}>
-              DELETE
             </Button>
           </TableCell>
         </>

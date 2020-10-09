@@ -77,15 +77,28 @@ function Transactions() {
                   </TableCell>
                 </TableRow>
                 <TableRow>
-                  <TableCell align="center">
-                    <ul>
-                      { toys && toys.map(({id, name, category, quantity}) => {
-                        const realQuantity = diff[id] ? quantity - diff[id] : quantity;
-                        return (
-                          <li key={id}>{name} ({category.name}) * {realQuantity}</li>
-                        )
-                      }) }
-                    </ul>
+                  <TableCell align="center" colSpan={5}>
+                    <Table>
+                      <TableHead>
+                        <TableRow>
+                          <TableCell>Toy Name</TableCell>
+                          <TableCell>Category</TableCell>
+                          <TableCell>Quantity</TableCell>
+                        </TableRow>
+                      </TableHead>
+                      <TableBody>
+                        { toys && toys.map(({id, name, category, quantity}) => {
+                          const realQuantity = diff[id] ? quantity - diff[id] : quantity;
+                          return (
+                            <TableRow key={id}>
+                              <TableCell>{name}</TableCell>
+                              <TableCell>{category.name}</TableCell>
+                              <TableCell>{realQuantity}</TableCell>
+                            </TableRow>
+                          );
+                        }) }
+                      </TableBody>
+                    </Table>
                   </TableCell>
                 </TableRow>
               </>
