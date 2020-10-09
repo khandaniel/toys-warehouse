@@ -41,10 +41,11 @@ const TransactionForm = () => {
     dispatch(selectTxType(target.value));
   }, [dispatch]);
   const onQuantityChange = useCallback((item, target) => {
-    if (target.value <= item.quantity) {
-      dispatch(updateTxToysQuantity(item.id, target.value));
+    if (target.value > item.quantity && txType === 'outcoming') {
+      return null;
     }
-  }, [dispatch]);
+    dispatch(updateTxToysQuantity(item.id, target.value));
+  }, [dispatch, txType]);
   const onDeleteTxToy = useCallback((id) => {
     dispatch(removeToyFromTx(id));
   }, [dispatch]);

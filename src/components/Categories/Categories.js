@@ -76,7 +76,7 @@ const Categories = () => {
                 <TableRow key={category.id}>
                   <TableCell>
                     { !editing[category.id] && <>{`${category.name} (${toysInCategory.length})`}</>}
-                    { !!editing[category.id] && (
+                    { editing[category.id] !== null && (
                     <TextField
                       value={editing[category.id]}
                       onChange={(e) => onCategoryNameChange(e, category.id)}

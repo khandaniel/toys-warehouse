@@ -30,7 +30,7 @@ const EditForm = ({ item, isNew = false }) => {
     if (
       editingItem.name === ''
             || editingItem.categoryId === ''
-            || editingItem.price === '0'
+            || editingItem.price === 0
     ) {
       const errorMessage = (
         <div style={{ color: 'red' }}>
@@ -58,6 +58,7 @@ const EditForm = ({ item, isNew = false }) => {
 
     const saveToyAction = isNew ? createToyAction(editingItem) : updateToyAction(editingItem, item);
     dispatch(saveToyAction);
+    setError('');
   }, [dispatch, editingItem, item, isNew, toys, requiredFields]);
 
   useEffect(() => {
